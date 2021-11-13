@@ -1,3 +1,5 @@
+# cache files
+__pycache__
 # environment files and folders
 .env
-kraetos-pyenv-*
+kraetos-pyenv
