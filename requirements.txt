@@ -1,0 +1,7 @@
+beautifulsoup4==4.9.3
+PyAudio==0.2.11
+google==3.0.0
+googlesearch-python==1.0.1
+pyttsx3==2.90
+requests==2.25.1
+speechRecognition==3.8.1
