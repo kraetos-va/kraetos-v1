@@ -8,6 +8,8 @@ branches:
 before_install:
   - pip install -U pip
   - pip install wheel
+  - pip install pipwin
+  - pipwin install pyaudio
   - pip install -e .
 install:
   - pip install -r requirements.txt
