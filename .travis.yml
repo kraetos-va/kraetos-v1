@@ -8,6 +8,7 @@ branches:
 before_install:
   - pip install -U pip
   - pip install -e .
+  - apt install libportaudio-dev
 install:
   - pip install -r requirements.txt
 script:
