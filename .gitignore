@@ -3,3 +3,7 @@ __pycache__
 # environment files and folders
 .env
 kraetos-pyenv
+# distribiition files
+dist/
+# egg files
+*.egg-info/
