@@ -1,4 +1,4 @@
-[![Build Status](https://app.travis-ci.com/sinhadotabhinav/kraetos-v1.svg?token=popfsbLLAmKKw8sEamqG&branch=develop)](https://app.travis-ci.com/sinhadotabhinav/kraetos-v1)
+[![Build Status](https://app.travis-ci.com/sinhadotabhinav/kraetos-v1.svg?branch=develop)](https://app.travis-ci.com/sinhadotabhinav/kraetos-v1)
 
 # kraetos-v1
 
