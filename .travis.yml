@@ -7,8 +7,7 @@ branches:
     - master
 before_install:
   - pip install -U pip
-  - pip install wheel
-  - pip install pyaudio
+  - sudo apt-get update && sudo apt-get install portaudio19-dev python-pyaudio python3-pyaudio
   - pip install -e .
 install:
   - pip install -r requirements.txt
