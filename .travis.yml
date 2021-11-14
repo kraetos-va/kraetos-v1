@@ -1,0 +1,17 @@
+language: python
+python:
+  - 3.8
+branches:
+  only:
+    - develop
+    - master
+install:
+  - pip install -r requirements.txt
+script:
+  - python -m build
+after_failure:
+  - echo "Build verification failed" && exit 1
+after_script:
+  - cd dist && pip install *.whl
+after_deploy:
+  - echo "All done"
