@@ -1,34 +1,30 @@
 # import the modules
-from core.engine import initialise, configure, shutdown
-from core.osmosis import listen, speak, understand
-from core.playbook import directive
+from core.engine import initialise, configure
+from core.osmosis import greet
+from helpers.listener import listener, trigger
 from helpers.stocks import checkStockPrice
 
-# Controller
-engineInit = initialise()
-engine = configure(engineInit)
-speak(engine, "Hello Abhinav")
-input = listen()
-inputText = understand(engine, input[0], input[1])
-print("input: {}".format(inputText))
-instruction = directive(inputText)
-print(instruction)
-checkStockPrice()
-shutdown(engine)
+# boot up engine
+def init():
+    engineInit = initialise()
+    return configure(engineInit)
 
-# Appendix
-# list voices
-"""
-voices = engine.getProperty('voices')
-for voice in voices:
-   print("{} : {}".format(voice.id, voice.languages))
-com.apple.speech.synthesis.voice.fiona : ['en-scotland']
-com.apple.speech.synthesis.voice.Fred : ['en_US']
-com.apple.speech.synthesis.voice.karen : ['en_AU']
-com.apple.speech.synthesis.voice.moira : ['en_IE']
-com.apple.speech.synthesis.voice.rishi : ['en_IN']
-com.apple.speech.synthesis.voice.samantha : ['en_US']
-com.apple.speech.synthesis.voice.tessa : ['en_ZA']
-com.apple.speech.synthesis.voice.veena : ['en_IN']
-com.apple.speech.synthesis.voice.Victoria : ['en_US']
-"""
+# start function to initialise AI engine
+def start():
+    engine = init()
+    greet(engine)
+    chore(engine)
+
+# chore function to perform action if found valid speech instructions
+def chore(engine):
+    action = listener(engine)
+    if isinstance(trigger(engine, action), str) and trigger(engine, action) == 'None':
+        print("Shutting down")
+    elif isinstance(trigger(engine, action), bool) and trigger(engine, action):
+        checkStockPrice()
+        chore(engine)
+    else:
+        chore(engine)
+
+# main controller
+start()
